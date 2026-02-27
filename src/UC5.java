@@ -8,28 +8,34 @@ public class UC5 {
         Scanner scanner = new Scanner(System.in);
         Stack<Character> stack = new Stack<>();
 
+        System.out.println("Welcome to Palindrome Checker App");
         System.out.println("Stack-Based Palindrome Checker");
         System.out.print("Enter a word: ");
 
         String input = scanner.nextLine();
 
-        for (int i = 0; i < input.length(); i++) {
-            stack.push(input.charAt(i));
+        // Normalize input (case insensitive + ignore spaces)
+        String normalized = input.toLowerCase().replace(" ", "");
+
+        // Push characters into stack
+        for (int i = 0; i < normalized.length(); i++) {
+            stack.push(normalized.charAt(i));
         }
 
         boolean isPalindrome = true;
 
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) != stack.pop()) {
+        // Compare with stack pop
+        for (int i = 0; i < normalized.length(); i++) {
+            if (normalized.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
         }
 
         if (isPalindrome) {
-            System.out.println(input + " is a Palindrome");
+            System.out.println("\"" + input + "\" is a Palindrome");
         } else {
-            System.out.println(input + " is not a Palindrome");
+            System.out.println("\"" + input + "\" is not a Palindrome");
         }
 
         scanner.close();
