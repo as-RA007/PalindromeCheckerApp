@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-public class UC5 {
+public class UC5git add .
+git commit -m "Cleanup: Remove extra UC class files"
+git push {
 
     public static void main(String[] args) {
 
