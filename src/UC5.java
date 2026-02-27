@@ -14,17 +14,16 @@ public class UC5 {
 
         String input = scanner.nextLine();
 
-        // Normalize input (case insensitive + ignore spaces)
+
         String normalized = input.toLowerCase().replace(" ", "");
 
-        // Push characters into stack
+
         for (int i = 0; i < normalized.length(); i++) {
             stack.push(normalized.charAt(i));
         }
 
         boolean isPalindrome = true;
 
-        // Compare with stack pop
         for (int i = 0; i < normalized.length(); i++) {
             if (normalized.charAt(i) != stack.pop()) {
                 isPalindrome = false;
