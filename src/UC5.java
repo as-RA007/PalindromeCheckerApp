@@ -1,31 +1,35 @@
 import java.util.Scanner;
+import java.util.Stack;
 
-public class UC5git add .
-git commit -m "Cleanup: Remove extra UC class files"
-git push {
+public class UC5 {
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        Stack<Character> stack = new Stack<>();
 
-        System.out.println("Welcome to Palindrome Checker App");
-        System.out.print("Enter a sentence: ");
+        System.out.println("Stack-Based Palindrome Checker");
+        System.out.print("Enter a word: ");
 
         String input = scanner.nextLine();
 
-        // Normalize input
-        String normalized = input.toLowerCase().replace(" ", "");
-
-        String reversed = "";
-
-        for (int i = normalized.length() - 1; i >= 0; i--) {
-            reversed += normalized.charAt(i);
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
         }
 
-        if (normalized.equals(reversed)) {
-            System.out.println("\"" + input + "\" is a Palindrome");
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) != stack.pop()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println(input + " is a Palindrome");
         } else {
-            System.out.println("\"" + input + "\" is not a Palindrome");
+            System.out.println(input + " is not a Palindrome");
         }
 
         scanner.close();

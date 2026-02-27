@@ -1,28 +1,36 @@
 import java.util.Scanner;
 
-public class UC4
-{
+public class UC4 {
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to Palindrome Checker App");
+        System.out.println("Character Array Based Palindrome Check");
         System.out.print("Enter a word: ");
 
-        String word = scanner.nextLine();
-        String normalized = word.toLowerCase();
+        String input = scanner.nextLine();
 
-        String reversed = "";
+        char[] characters = input.toCharArray();
 
-        for (int i = normalized.length() - 1; i >= 0; i--) {
-            reversed += normalized.charAt(i);
+        boolean isPalindrome = true;
+
+        int start = 0;
+        int end = characters.length - 1;
+
+        while (start < end) {
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-        if (normalized.equals(reversed)) {
-            System.out.println(word + " is a Palindrome (Case Insensitive)");
+        if (isPalindrome) {
+            System.out.println(input + " is a Palindrome");
         } else {
-            System.out.println(word + " is not a Palindrome");
+            System.out.println(input + " is not a Palindrome");
         }
 
         scanner.close();
