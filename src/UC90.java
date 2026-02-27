@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UC10 {
+public class UC90 {
 
     public static void main(String[] args) {
 
